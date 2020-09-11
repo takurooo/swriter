@@ -13,7 +13,7 @@ type SWriter struct {
 	off int // next write at buf[off]
 }
 
-// NewSWriter ...
+// New ...
 func New(n int) *SWriter {
 	buf := makeSlice(n)
 	buffer := &SWriter{buf: buf}
