@@ -84,10 +84,6 @@ func (b *SWriter) WriteAt(p []byte, off int64) (n int, err error) {
 	return b.Write(p)
 }
 
-func ceil(v, unit int) int {
-	return (v + (unit - 1)) / unit * unit
-}
-
 func (b *SWriter) grow(n int) {
 	/*
 	 * ex.)
@@ -161,4 +157,8 @@ func makeSlice(n int) []byte {
 		}
 	}()
 	return make([]byte, n)
+}
+
+func ceil(v, unit int) int {
+	return (v + (unit - 1)) / unit * unit
 }
