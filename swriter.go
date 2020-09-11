@@ -14,7 +14,7 @@ type SWriter struct {
 }
 
 // NewSWriter ...
-func NewSWriter(n int) *SWriter {
+func New(n int) *SWriter {
 	buf := makeSlice(n)
 	buffer := &SWriter{buf: buf}
 	buffer.Reset()

@@ -8,7 +8,7 @@ const xmaxInt = int(^uint(0) >> 1)
 
 func testWrite(testNo int, initCap int, p []byte, t *testing.T) {
 
-	sw := NewSWriter(initCap)
+	sw := New(initCap)
 	if sw.Len() != 0 || sw.Cap() != initCap {
 		t.Fatalf("[test%d]invalid cap %d or len %d", testNo, sw.Cap(), sw.Len())
 	}
@@ -62,7 +62,7 @@ func TestWriter(t *testing.T) {
 
 	{
 		initCap := 3
-		sw := NewSWriter(initCap)
+		sw := New(initCap)
 		if sw.Len() != 0 || sw.Cap() != initCap {
 			t.Fatalf("invalid cap %d or len %d", sw.Cap(), sw.Len())
 		}
@@ -77,7 +77,7 @@ func TestWriter(t *testing.T) {
 	}
 	{
 		initCap := 3
-		sw := NewSWriter(initCap)
+		sw := New(initCap)
 		sw.Write([]byte{1, 2})
 		sw.Write([]byte{1, 2})
 		sw.Write([]byte{1, 2})
@@ -88,7 +88,7 @@ func TestWriter(t *testing.T) {
 	}
 	{
 		initCap := 3
-		sw := NewSWriter(initCap)
+		sw := New(initCap)
 		sw.WriteAt([]byte{1, 2}, 2)
 		if sw.Len() != 4 {
 			t.Fatalf("invalid len %d", sw.Len())
